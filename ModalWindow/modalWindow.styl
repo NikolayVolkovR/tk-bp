@@ -1,0 +1,91 @@
+color_1 = #747ea6;
+
+color_2 = #4d4d4d;
+color_3 = #999999;
+color_3_hover = #ccc;
+color_4 = #808080;
+color_4_hover = #bbb;
+color_5 = #333;
+color_5_hover = #777;
+
+color_6 = #b3b3b3;
+color_7 = #e6e6e6;
+
+color_8 = #78a576;
+color_8_hover = #89bd87;
+color_9 = #009245;
+
+.cModal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+
+  .modal__shadow {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .modal__wrap {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+    cursor: pointer;
+
+    .modal__window {
+      background: #fff;
+      border: solid 1px color_6;
+      padding: 48px 38px 38px;
+      position: relative;
+      max-height: 90%;
+      overflow-y: auto;
+      cursor: default;
+
+      @media only screen and (max-width: 800px) {
+        padding: 48px 15px 15px
+      }
+      .modal__cross-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        .modal__white-line {
+          height: 48px;
+          background: #fff;
+          opacity: 0.95;
+        }
+
+        .modal__window-cross {
+          width: 28px;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+
+

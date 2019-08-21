@@ -1,0 +1,50 @@
+div.chooseCar__carDescription
+    if (carsLenth > 1)
+        div.chooseCar__carDescription-photoBlock
+            img(src='/images/arrow-left.svg').chooseCar__carDescription-prev
+            img(src =car.photo).chooseCar__carDescription-photo
+            img(src='/images/arrow-right.svg').chooseCar__carDescription-next
+    else
+        div.chooseCar__carDescription-photoBlock.disabled
+            img(src='/images/arrow-left.svg', title='Подходит только одна машина').chooseCar__carDescription-prev.disabled
+            img(src =car.photo).chooseCar__carDescription-photo
+            img(src='/images/arrow-right.svg', title='Подходит только одна машина').chooseCar__carDescription-next.disabled
+    div.chooseCar__carDescription-name=car.name
+    div.chooseCar__carDescription-params
+        div.chooseCar__carDescription-params-half
+            div.chooseCar__carDescription-params-half-header Грузовой отсек:
+            div.chooseCar__carDescription-params-half-line
+                div.chooseCar__carDescription-params-half-line-name длина:
+                div.chooseCar__carDescription-params-half-line-value #{car.length} м
+            div.chooseCar__carDescription-params-half-line
+                div.chooseCar__carDescription-params-half-line-name ширина:
+                div.chooseCar__carDescription-params-half-line-value #{car.width} м
+            div.chooseCar__carDescription-params-half-line
+                div.chooseCar__carDescription-params-half-line-name высота:
+                div.chooseCar__carDescription-params-half-line-value #{car.height} м
+        div.chooseCar__carDescription-params-half.cost
+            div.chooseCar__carDescription-params-half-header Стоимость:
+            div.chooseCar__carDescription-params-half-line
+                div.chooseCar__carDescription-params-half-line-name час:
+                div.chooseCar__carDescription-params-half-line-value
+                    span.price=car.hourCost
+                    | &nbsp;р
+            div.chooseCar__carDescription-params-half-line
+                div.chooseCar__carDescription-params-half-line-name км:
+                div.chooseCar__carDescription-params-half-line-value
+                    span.price=car.kmCost
+                    | &nbsp;р
+            div.chooseCar__carDescription-params-half-line
+                div.chooseCar__carDescription-params-half-line-name день:
+                div.chooseCar__carDescription-params-half-line-value
+                    span.price=car.hourCost * 8
+                    | &nbsp;р
+    div.chooseCar__carDescription-params
+        div.chooseCar__carDescription-params-half
+            | Минимальный<br/>заказ #{car.minHours} ч.
+            div
+                span.price=car.minHours * car.hourCost
+                | &nbsp;р
+        div(style='background:' + designOptions.orderButtonColor,
+            data-photo-src=car.photo,
+            data-photo-name=car.name).make-order.chooseCar__carDescription-params-order-btn= designOptions.orderButtonText

@@ -1,0 +1,33 @@
+div.calculator__price
+    div.calculator__price-content
+        img(src = '/images/cross.svg').calculator__price-close
+        div.calculator__price-header Расчёт перевозки
+        if distance
+            div.line.calculator__price-distance Расстояние (вне МКАД) #{distance} x 2 = #{distance * 2} км:
+                |<span class='price'>#{distanceCost}</span> р
+                img.questioin(
+                    src='/images/question.svg',
+                    title='Как рассчитывается расстояние?'
+                )
+        if duration
+            div.line.calculator__price-duration Время по Москве #{duration} ч:
+                | <span class='price'>#{durationCost}</span> р
+                img.questioin(
+                    src='/images/question.svg',
+                    title='Как рассчитывается время поездки?'
+                )
+            div.line.calculator__price-duration-traffic Время с учётом пробок сейчас: #{durationTraffic} ч
+        if feedCost
+            div.line.calculator__price-feed-cost Подача (1 час): <span class='price'>#{feedCost}</span> р
+        if totalCost <= minCost
+            div.line.calculator__price-min-order-hint Эта превозка входит в стоимость минимального заказа
+        div.line.last
+            div
+                div.calculator__price-total Итого: <span class='price'>#{finishCost}</span> р
+                    img.questioin(
+                    src='/images/question.svg',
+                    title='Как рассчитывается общая стоимость перевозки?'
+                    )
+                div.calculator__price-total-mini Стоимость: <span class='price'>#{finishCost}</span> р
+                div.calculator__price-expand Развернуть детализацию
+            button.calculator__price-order-btn Заказать

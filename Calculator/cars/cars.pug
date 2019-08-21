@@ -1,0 +1,41 @@
+div.calculator__cars_photo
+    div.calculator__cars_prev-car
+        img(src='/images/arrow-left.svg')
+    div.calculator__cars_car-photo
+        img(src =src)
+    div.calculator__cars_next-car
+        img(src='/images/arrow-right.svg')
+div.calculator__cars_params
+    div.calculator__cars_params-name #{name} <span class='tons'>#{ton} т</span>
+    div.calculator__cars_params-priceLine
+        div.name Минимальный заказ <span> (<span class='calculator__cars-min-order-hours'>#{minHours}</span> ч<sup>*</sup>)</span>:
+        div.value <nobr><span class='calculator__cars-min-order-cost'>#{minOrder}</span> р</nobr>
+    div.calculator__cars_params-priceLine
+        div.name На весь день:
+        div.value.green <span class='calculator__cars-day-cost'> #{dayPrice}</span> р
+    div.calculator__cars_params-details
+        div.calculator__cars_params-details-column
+            div.header Грузовой отсек
+            div.line
+                div.name длина:
+                div.value <span class='calculator__cars-length'>#{length}</span> м
+            div.line
+                div.name ширина:
+                div.value <span class='calculator__cars-width'>#{width}</span> м
+            div.line
+                div.name высота:
+                div.value <span class='calculator__cars-height'>#{height}</span> м
+        div.calculator__cars_params-details-column
+            div.header Стоимость
+            div.line
+                div.name час:
+                div.value <span class='price calculator__cars-hour-cost'>#{hourCost}</span> р
+            div.line
+                div.name км:
+                div.value <span class='price calculator__cars-km-cost'>#{kmCost}</span> р
+
+    div.calculator__cars_choose-car-btn
+        div.big подобрать машину
+        div по параметрам груза
+
+

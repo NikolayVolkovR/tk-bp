@@ -1,0 +1,41 @@
+.cSlider {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+
+  .cSlider__leftArrow, .cSlider__rightArrow {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-basis: 8%;
+    cursor: pointer;
+
+    &.disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+
+    img {
+      width: 70%;
+    }
+  }
+  .cSlider__rightArrow {
+    justify-content: flex-end;
+  }
+  .cSlider__slidesWrap {
+    flex-basis: 92%;
+    overflow:hidden;
+    .cSlider__slides {
+      width: 100%;
+      display: flex;
+      .cSlider__slide {
+        flex-basis: 25%;
+        cursor: pointer;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

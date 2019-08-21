@@ -1,0 +1,240 @@
+color_1 = #747ea6;
+
+color_2 = #4d4d4d;
+color_3 = #999999;
+color_3_hover = #ccc;
+color_4 = #808080;
+color_4_hover = #bbb;
+color_5 = #333;
+color_5_hover = #777;
+
+color_6 = #b3b3b3;
+color_7 = #e6e6e6;
+
+color_8 = #78a576;
+color_8_hover = #89bd87;
+color_9 = #009245;
+
+.calculator__cars {
+  flex-basis: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media only screen and (max-width: 567px) {
+    flex-basis: 94%;
+    margin-top: 15px;
+  }
+
+  .calculator__cars_photo {
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 870px) {
+      height: 120px;
+    }
+    @media only screen and (max-width: 800px) {
+      height: 110px;
+    }
+    @media only screen and (max-width: 700px) {
+      height: 100px;
+    }
+    @media only screen and (max-width: 567px) {
+      height: 160px;
+    }
+    @media only screen and (max-width: 500px) {
+      height: 150px;
+    }
+    @media only screen and (max-width: 360px) {
+      height: 140px;
+    }
+
+    .calculator__cars_prev-car, .calculator__cars_next-car {
+      flex-basis: 20%;
+      display: flex;
+      align-content: center;
+      cursor: pointer;
+
+      @media only screen and (max-width: 870px) {
+        flex-basis: 18%;
+      }
+      @media only screen and (max-width: 700px) {
+        flex-basis: 16%;
+      }
+      @media only screen and (max-width: 400px) {
+        flex-basis: 20%;
+      }
+      img {
+        width: 35%;
+      }
+    }
+
+    .calculator__cars_next-car {
+      justify-content: flex-end;
+    }
+
+    .calculator__cars_car-photo {
+      flex-basis: 45%;
+
+      @media only screen and (max-width: 870px) {
+        flex-basis: 40%;
+      }
+      @media only screen and (max-width: 567px) {
+        flex-basis: 45%;
+      }
+      @media only screen and (max-width: 400px) {
+        flex-basis: 50%;
+      }
+      @media only screen and (max-width: 400px) {
+        flex-basis: 55%;
+      }
+      img {
+        width: 100%;
+      }
+    }
+
+
+  }
+  .calculator__cars_params {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 800px) {
+      width: 90%;
+    }
+    @media only screen and (max-width: 600px) {
+      width: 96%;
+    }
+    @media only screen and (max-width: 567px) {
+      width: 80%
+    }
+    @media only screen and (max-width: 400px) {
+      width: 90%
+    }
+    @media only screen and (max-width: 360px) {
+      width: 100%
+    }
+
+    .calculator__cars_params-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 3px;
+
+      @media only screen and (max-width: 567px) {
+        margin-bottom: 10px;
+      }
+
+      .tons {
+        font-weight: normal;
+      }
+    }
+    .calculator__cars_params-priceLine {
+      //margin-top: 0px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      @media only screen and (max-width: 700px) {
+        font-size: 14px;
+      }
+      @media only screen and (max-width: 567px) {
+        font-size: 16px;
+      }
+      .value {
+
+        span {
+          color: color_1;
+          font-size: 18px;
+        }
+        &.green {
+          span {
+            color: color_9;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .calculator__cars_params-details {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      @media only screen and (max-width: 920px) {
+        margin-top: 10px;
+      }
+      @media only screen and (max-width: 800px) {
+        margin-top: 3px;
+      }
+      @media only screen and (max-width: 567px) {
+        margin-top: 20px;
+      }
+      .calculator__cars_params-details-column {
+        flex-basis: 40%;
+
+        @media only screen and (max-width: 700px) {
+          flex-basis: 48%;
+        }
+
+        .header {
+          font-weight: bold;
+          margin-bottom: 7px;
+
+          @media only screen and (max-width: 800px) {
+            margin-bottom: 2px;
+          }
+        }
+        .line {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 3px;
+
+
+
+          .name {
+            width: 45%;
+          }
+          .value {
+            width: 45%;
+
+            .price {
+              font-size: 18px;
+              color: color_1
+            }
+          }
+        }
+      }
+    }
+    .calculator__cars_choose-car-btn {
+      margin-top: 20px;
+      background: color_1;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      float: right;
+      border-radius: 5px;
+      padding: 7px 20px;
+      text-align: center;
+      line-height: 1.65;
+
+      @media only screen and (max-width: 920px) {
+        margin-top: 10px;
+      }
+      @media only screen and (max-width: 800px) {
+        margin-top: 5px;
+      }
+      @media only screen and (max-width: 567px) {
+        margin-top: 20px;
+      }
+      .big {
+        text-transform: uppercase;
+        font-size: 15px;
+      }
+
+      &:hover {
+        //background: color_1_hover;
+        // todo добавить цвет background: color_1_hover
+      }
+    }
+  }
+}

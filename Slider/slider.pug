@@ -1,0 +1,15 @@
+div.cSlider
+    div(class= slides.length > slidesVisible ? 'cSlider__leftArrow' : 'cSlider__leftArrow disabled')
+        img(src='/images/icons/slider-left-arrow.svg')
+    div.cSlider__slidesWrap
+        div.cSlider__slides
+            each val,index in slides
+                if index < slidesVisible
+                    div(
+                        title=val.nameRus,
+                        style="flex-basis:" + slideWidth,
+                        data-type=val.nameEng
+                    ).cSlider__slide
+                        img(src=val.src)
+    div(class= slides.length > slidesVisible ? 'cSlider__rightArrow' : 'cSlider__rightArrow disabled')
+        img(src='/images/icons/slider-right-arrow.svg')

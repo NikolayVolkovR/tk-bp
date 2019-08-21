@@ -1,0 +1,56 @@
+color_1 = #747ea6;
+
+color_2 = #4d4d4d;
+color_3 = #999999;
+color_3_hover = #ccc;
+color_4 = #808080;
+color_4_hover = #bbb;
+color_5 = #333;
+color_5_hover = #777;
+
+color_6 = #b3b3b3;
+color_7 = #e6e6e6;
+
+color_8 = #78a576;
+color_8_hover = #89bd87;
+color_9 = #009245;
+
+.chooseCar__cargoParams-param {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  margin: 7px 0;
+  color: color_6;
+
+  &.active {
+    color: color_2;
+  }
+
+  .chooseCar__cargoParams-valueWrap {
+    flex-basis: 40%;
+    display: flex;
+    justify-content: space-between;
+    aling-items: center;
+
+    .chooseCar__cargoParams-minus, .chooseCar__cargoParams-plus {
+      cursor: pointer;
+      img {
+        width: 30px;
+      }
+      &.disabled {
+        opacity: 0.5;
+      }
+    }
+    .chooseCar__cargoParams-value {
+      font-size: 20px;
+    }
+  }
+  .chooseCar__cargoParams-line-palet-hint {
+    margin-left: 38px;
+    margin-top: -3px;
+    font-size: 12px;
+    color: color_3;
+  }
+}

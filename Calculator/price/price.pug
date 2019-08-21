@@ -1,0 +1,108 @@
+div.calculator__price
+    div.calculator__price-content
+        img.expanded(src = '/images/cross.svg').calculator__price-close
+        div.expanded.calculator__price-header Расчёт перевозки
+        div.line.calculator__price-type
+            div.value Тип: #{params.calcData.typeRus}
+            a(href = '#types').anchor-scroll
+                img.question(
+                src='/images/question.svg',
+                title='Какие типы перевозок бывают и что это значит?')
+        if params.calcData.type === 'intercity'
+            div.line
+                div.value Пробег #{params.routeData.distanceTotal} км * 2 =
+                    | #{params.routeData.distanceTotal * 2} км:
+                    | <span class='price'>#{params.calcData.distanceCost}</span> р
+                a(href = '#distance-cost').anchor-scroll
+                    img.question(
+                        src='/images/question.svg',
+                        title='Как рассчитывается расстояние?')
+        else if params.calcData.type === 'obl'
+            div.line
+                div.value Пробег #{params.routeData.distanceObl} км * 2 =
+                    | #{params.routeData.distanceObl * 2} км:
+                    | <span class='price'>#{params.calcData.distanceCost}</span> р
+                a(href = '#distance-cost').anchor-scroll
+                    img.question(
+                        src='/images/question.svg',
+                        title='Как рассчитывается расстояние?')
+            div.line Минимальный заказ <span class='price'>#{params.calcData.minOrderCost}</span> р
+        else if params.calcData.type === 'msk'
+            div.line
+                div.value Пробег #{params.routeData.distanceMsk} км:
+                    | <span class='price'>#{params.calcData.distanceCostMsk}</span> р
+                a(href = '#distance-cost-moscow').anchor-scroll
+                    img.question(
+                        src='/images/question.svg',
+                        title='Как рассчитывается расстояние по Москве?')
+            div.line Подача: <span class='price'>#{params.calcData.feedCost}</span> р
+            div.line
+                div.value Время по маршруту #{params.routeData.durationMsk} ч:
+                    | <span class='price'>#{params.calcData.durationCost}</span> р
+            div.line
+                div.value Погрузка, разгрузка, ожидание ≈ #{params.routeData.realPointsQuantity} ч:
+                    | <span class='price'>#{params.calcData.waitCost}</span> р
+                img.question(
+                    src='/images/question.svg',
+                    title='Как учитывается время операционных издержек?')
+            div.line
+                div.value Минимальный заказ <span class='price'>#{params.calcData.minOrderCost}</span> р
+            if params.calcData.minOrderCost === params.calcData.totalCost
+                div.line.calculator__price-min-order-hint Стоимость перевозки входит в минимальный заказ
+        else if params.calcData.type === 'mix'
+            div.line
+                div.value Пробег по области #{params.routeData.distanceObl} км * 2 = #{params.routeData.distanceObl * 2} км:
+                    | <span class='price'>#{params.calcData.distanceCostObl}</span> р
+                a(href = '#distance-cost' ).anchor-scroll
+                    img.question(
+                        src='/images/question.svg',
+                        title='Как рассчитывается пробег по области?')
+            div.line
+                div.value Пробег по Москве #{params.routeData.distanceMsk} км:
+                    | <span class='price'>#{params.calcData.distanceCostMsk}</span> р
+                a(href = '#distance-cost-moscow').anchor-scroll
+                    img.question(
+                        src='/images/question.svg',
+                        title='Как рассчитывается пробег по Москве?')
+            div.line
+                div.value Подача 1 ч: <span class='price'>#{params.calcData.feedCost}</span> р
+            div.line
+                div.value Время по Москве #{params.routeData.durationMsk} ч
+                    |: <span class='price'>#{params.calcData.durationCost}</span> р
+            div.line
+                div.value Погрузка, разгрузка, ожидание<br>≈ #{params.routeData.realPointsQuantity} ч:
+                    | <span class='price'>#{params.calcData.waitCost}</span> р
+                img.question(
+                    src='/images/question.svg',
+                    title='Как учитывается время операционных издержек?')
+            if params.calcData.mkadPassCost || params.calcData.ttkPassCost || params.calcData.skPassCost
+                div.line
+                    div.value
+                        span Нужен пропуск:
+                        if params.calcData.mkadPassCost
+                            span.pass МКАД
+                        if params.calcData.ttkPassCost
+                            span.pass ТТК
+                        if params.calcData.skPassCost
+                            span.pass CK
+                        |:
+                        span.price #{params.calcData.totalPassCost}
+                            | р
+                    a(href = '#pass-cost').anchor-scroll
+                        img.question(
+                            src='/images/question.svg',
+                            title='Зачем нужен пропуск и как считается его стоимость?')
+            div.line Минимальный заказ <span class='price'>#{params.calcData.minOrderCost}</span> р
+                if params.calcData.minOrderCost === params.calcData.totalCost
+                    div.line.calculator__price-min-order-hint Стоимость перевозки входит в минимальный заказ
+        div.line-last
+            div
+                div.expanded.calculator__price-total Итого: <nobr><span class='price'>#{params.calcData.totalCost}</span> р</nobr>
+                div.minimized.calculator__price-header Расчёт доставки
+                div.minimized.calculator__price-total <nobr><span class='price'>#{params.calcData.totalCost}</span> р</nobr>
+                    span.minimized.calculator__price-expand развернуть
+            a(href = '#total-cost').anchor-scroll
+                img.question.expanded(
+                    src='/images/question.svg',
+                    title='Как рассчитывается общая стоимость перевозки?')
+            button.calculator__price-order-btn Заказать
